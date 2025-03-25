@@ -1,103 +1,191 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React from 'react';
+import { useRef } from "react";
+import { FaHome, FaAddressBook, FaProjectDiagram, FaPlane } from 'react-icons/fa';
+import cardPerso from '../components/cardPerso';
+import CircularProgress from '@/components/CircularProgress';
+import Card from '@/components/Card';
+
+export default function Principal() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-black, w-full , h-full p-7">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <header className="w-full , h-full , flex justify-between ">
+        <h2 className="text-amber-500 text-4xl font-bold">
+          <span className=" text-gray-300">Leonce </span>
+          OROU AWA
+        </h2>
+        <ul className="grid grid-cols-4 gap-6 ml-0">
+          <li className=" flex ">
+            <FaHome className='mt-3 mr-2' />
+            <button>Home</button>
+          </li>
+          <li className="flex ">
+            <FaProjectDiagram className='mt-3 mr-2' />
+            <button>Skills</button>
+          </li>
+          <li className="flex ">
+            <FaProjectDiagram className='mt-3 mr-2' />
+            <button>Projects</button>
+          </li>
+          <li className="flex ">
+            <FaAddressBook className='mt-3 mr-2' />
+            <button>Contact</button>
+          </li>
+        </ul>
+
+      </header>
+      <div className='bg-gray-900 w-full h-full mt-16 p-6 '>
+
+        <section id="Home" className='flex justify-between pt-20  pl-40 pr-40' >
+          <div className='w-1/3 h-96 bg-gray-800 rounded-3xl   '>
+            <div className=" w-96 h-96 bg-amber-500 rounded-full mt-12 ml-20">
+
+            </div>
+            <img src="" alt="" />
+
+          </div>
+
+          <div className='grid grid-rows-3 '>
+            <h1 className='text-4xl font-bold'>
+              <span className='text-amber-500 '>- I'm LEONCE OROU AWA K.</span>
+              <br />
+              WEB DEVELOPPEUR
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br />
+              Neque, culpa sunt quo inventore consequuntur enim tempora vitae <br />
+              perferendis natus architecto nemo nostrum vero cum
+
+            </p>
+            <button className='flex justify-center items-center  border-1 rounded-4xl p-2 w-40 h-8 mt-2 border-amber-500 cursor-pointer'>
+              More about me
+              <span className=' w-7 h-7 bg-amber-500 rounded-full '><FaPlane /></span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+
+        <section id="About Me" className='grid grid-rows-2 mt-32 bg-gray-800 h-[600px]' >
+
+          <div className="">
+            <div className='flex justify-center'>
+              <h1 className='text-7xl text-gray-700 font-extrabold shadow-md'>ABOUT ME</h1>
+              <h2 className='text-4xl font-extrabold mt-4 -ml-72'>ABOUT <span className='text-amber-500'>ME</span></h2>
+            </div>
+
+            <div className='grid grid-cols-2 '>
+              <div className='p-14'>
+                <h2 className='text-2xl font-bold ml-28'>Personnals Infos</h2>
+                <br />
+                <div className='grid grid-cols-2'>
+                  <ul>
+                    <li>
+                      <span className=' text-gray-700 text-lg'>First Name</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Age</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Freelance</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Phone </span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Linkedin </span>
+                    </li>
+                    <br />
+
+                  </ul>
+                  <ul>
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Last Name</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Nationality</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Adresse</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Email</span>
+                    </li>
+                    <br />
+                    <li>
+                      <span className=' text-gray-700 text-lg'>Langage </span>
+                    </li>
+                    <br />
+                  </ul>
+                </div>
+
+
+              </div>
+              <div className=' w-3xl h-3xs mt-14 grid grid-cols-3 gap-3 p-8 pt-4 pb-4' >
+                <Card title="Hello" text="Description ici" />
+                <Card title="Hello" text="Description ici" />
+                <Card title="Hello" text="Description ici" />
+                <Card title="Hello" text="Description ici" />
+                <Card title="Hello" text="Description ici" />
+                <Card title="Hello" text="Description ici" />
+
+
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <section id="Skills" >
+          <div className='flex justify-center'>
+            <h1 className='text-7xl text-gray-700 font-extrabold shadow-md '>SKILLS</h1>
+            <h1 className='text-5xl font-extrabold mt-4 -ml-48 text-amber-500'>Skills</h1>
+          </div>
+          <div className=" mt-32 ml-32 p-24 gap-12 grid grid-cols-4 pb-6">
+            <CircularProgress value={65} label="HTML" /> {/* 65% */}
+            <CircularProgress value={68} label="CSS" /> {/* 65% */}
+            <CircularProgress value={35} label="Tailwind" /> {/* 65% */}
+            <CircularProgress value={25} label="React" /> {/* 65% */}
+            <CircularProgress value={45} label="Django" /> {/* 65% */}
+            <CircularProgress value={35} label="Java-NetBeans" /> {/* 65% */}
+            <CircularProgress value={75} label="Canva" /> {/* 65% */}
+            <CircularProgress value={27} label="NextJs" /> {/* 65% */}
+          </div>
+
+        </section>
+
+        <section id="Experience" >
+          <div className='flex justify-center mt-72 -ml-[250px]'>
+            <h1 className='text-6xl text-gray-700 font-extrabold shadow-md '>EXPERIENCES & EDUCATION</h1>
+            <h1 className='text-5xl font-extrabold mt-2 -ml-[750px]'> Expériences<span className=' text-amber-500'>Education</span></h1>
+          </div>
+          <div>
+
+          </div>
+
+        </section>
+
+        <section id="Contact" >
+
+        </section>
+
+      </div>
+      <footer>
+
       </footer>
+
+
     </div>
   );
 }
