@@ -1,21 +1,18 @@
+// components/CardInterest.tsx
 import React from "react";
 
-const Card = ({ title, text }: { title: string; text: string }) => {
-    return (
-        <div className="w-44 h-44 border-1 border-gray-500 bg-gray-800 rounded-md flex  flex-col overflow-hidden pt-8 transition-all duration-300  hover:bg-yellow-600">
-            {/* Partie supérieure - 60% */}
-            <div >
-                <p className="flex-1 flex items-center text-amber-500 justify-center font-bold text-[40px] transition-all duration-300 hover:text-white">
-                    {title}
-                </p>
-            </div>
-
-            {/* Partie inférieure - 40% */}
-            <div className="h-[40%] text-white flex items-center justify-center text-sm p-1">
-                {text}
-            </div>
-        </div>
-    );
+type CardInterestProps = {
+  title: string;
+  icon: React.ReactNode;
 };
 
-export default Card;
+const CardInterest = ({ title, icon }: CardInterestProps) => {
+  return (
+    <div className="bg-gray-900 w-28 h-28 sm:w-32 sm:h-32 rounded-lg flex flex-col items-center justify-center text-white hover:bg-yellow-600 transition duration-300 shadow-md">
+      <div className="text-2xl sm:text-3xl mb-2">{icon}</div>
+      <div className="text-xs sm:text-sm font-semibold">{title}</div>
+    </div>
+  );
+};
+
+export default CardInterest;
