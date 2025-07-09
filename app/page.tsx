@@ -104,16 +104,18 @@ const CircularProgress = ({ value, label, icon, isLightOn }: { value: number; la
 };
 
 import Header from "@/components/header";
-import CustomButton from "@/components/button"; 
+import CustomButton from "@/components/button"; // Assuming CustomButton component is defined here or imported
 import AboutPopover from "@/components/AboutPopover";
 
+// Temporary interface for CustomButtonProps to resolve type error
+// You should ensure your actual components/button.tsx file's props interface matches this.
 interface CustomButtonProps {
   text: string;
   bgColor: string;
   textColor: string;
   icon?: ReactNode;
   onClick?: () => void;
-  type?: "button" | "submit" | "reset"; 
+  type?: "button" | "submit" | "reset"; // Added the 'type' property
 }
 
 const CardInterest = ({
@@ -147,9 +149,8 @@ const AnimatedSection = ({ children, className = '', threshold = 0.2, id }: Anim
     <div
       ref={ref}
       id={id}
-      className={`${className} transition-all duration-1000 ease-out ${
-        inView ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-      }`}
+      className={`${className} transition-all duration-1000 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+        }`}
     >
       {children}
     </div>
@@ -162,7 +163,7 @@ interface ExperienceCardProps {
   title: string;
   subtitle: string;
   description: string | ReactNode;
-  isExperience?: boolean; 
+  isExperience?: boolean; // Optional prop to differentiate styling if needed later
   isLightOn: boolean;
 }
 
@@ -186,8 +187,8 @@ const ExperienceCard = ({ timeframe, title, subtitle, description, isExperience,
 
 export default function Principal() {
   const [showPopover, setShowPopover] = useState(false);
-  const [isLightOn, setIsLightOn] = useState(false); 
-  const toggleTheme = () => setIsLightOn(!isLightOn); 
+  const [isLightOn, setIsLightOn] = useState(false); // État du thème, géré ici
+  const toggleTheme = () => setIsLightOn(!isLightOn); // Fonction pour basculer le thème
 
   const [formData, setFormData] = useState({
     name: '',
@@ -195,7 +196,7 @@ export default function Principal() {
     message: '',
   });
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => { 
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => { // Explicitly typed 'e'
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -205,12 +206,27 @@ export default function Principal() {
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => { // Explicitly typed 'e'
     e.preventDefault();
-    
-    console.log('Form submitted:', formData);
-    alert('Message sent! (Note: This is a demo. No actual message was sent.)');
+
+    const { name, email, message } = formData;
+
+    // Encode les données pour l'URL mailto
+    const subject = encodeURIComponent(`Message de votre Portfolio par ${name}`);
+    const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+    // Crée l'URL mailto
+    const mailtoLink = `mailto:orouleonce@gmail.com?subject=${subject}&body=${body}`;
+
+    // Ouvre le client de messagerie de l'utilisateur
+    window.location.href = mailtoLink;
+
+    // Informer l'utilisateur que son client de messagerie va s'ouvrir
+    alert("Votre client de messagerie va s'ouvrir avec le message pré-rempli. Veuillez l'envoyer pour que je puisse le recevoir.");
+
+    // Effacer les champs du formulaire après la tentative d'ouverture du client mail
     setFormData({ name: '', email: '', message: '' });
   };
 
+  // Définition de la description complète pour le popover
   const fullAboutMeDescriptionContent = (
     <>
       <p className={`text-sm sm:text-base ${isLightOn ? 'text-gray-700' : 'text-gray-300'} mb-4`}>
@@ -282,9 +298,9 @@ export default function Principal() {
 
         {/* Social Icons (Centered using flexbox) */}
         <AnimatedSection className="w-full flex justify-center mt-10 mb-8">
-          <div className={`flex items-center justify-center gap-6 text-3xl ${isLightOn ? 'text-gray-800' : 'text-white'} `}>
+          <div className={`flex items-center justify-center gap-6 text-3xl ${isLightOn ? 'text-gray-800' : 'text-white'}`}>
             <a
-              href="https://github.com/orou18"
+              href="https://github.com/tonprofil"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-amber-500 transition-all duration-300"
@@ -292,7 +308,7 @@ export default function Principal() {
               <FaGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/leonce-orou-awa-481801276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              href="https://linkedin.com/in/tonprofil"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-amber-500 transition-all duration-300"
@@ -300,7 +316,7 @@ export default function Principal() {
               <FaLinkedin />
             </a>
             <a
-              href="https://www.facebook.com/share/1F4LYGoR3B/?mibextid=wwXIfr"
+              href="https://facebook.com/tonprofil"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-amber-500 transition-all duration-300"
@@ -308,7 +324,7 @@ export default function Principal() {
               <FaFacebook />
             </a>
             <a
-              href="https://discord.com/Leonce_AWA"
+              href="https://discord.com/users/tonid"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-amber-500 transition-all duration-300"
@@ -429,7 +445,7 @@ export default function Principal() {
           </div>
 
           {/* NEW: Professional Experience Section */}
-          <h3 className="text-3xl font-bold text-white text-center mb-8">Expériences Professionnelles</h3>
+          <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} text-center mb-8`}>Expériences Professionnelles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 mb-16">
             <ExperienceCard
               timeframe="Août 2024 - Septembre 2024"
@@ -523,7 +539,7 @@ export default function Principal() {
 
             {/* Column 3: Formation Académique */}
             <div>
-              <h3 className={`3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} text-center mb-8`}>Formation Académique</h3>
+              <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} text-center mb-8`}>Formation Académique</h3>
               <div className="space-y-8">
                 <ExperienceCard
                   timeframe="2022 - 2025"
@@ -590,7 +606,7 @@ export default function Principal() {
             <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} mb-8 text-center`}>Send Me a Message</h3>
             <form onSubmit={handleFormSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className={`block ${isLightOn ? 'text-gray-700' : 'text-gray-300'} text-sm font-bold mb-2`}>
+                <label htmlFor="name" className={`block ${isLightOn ? 'text-gray-700' : 'text-white'} text-sm font-bold mb-2`}>
                   Name
                 </label>
                 <input
@@ -599,13 +615,14 @@ export default function Principal() {
                   name="name"
                   value={formData.name}
                   onChange={handleFormChange}
-                  className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-gray-700 bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
+                  // CORRECTION APPLIQUÉE ICI
+                  className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-white bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
                   placeholder="Your Name"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className={`block ${isLightOn ? 'text-gray-700' : 'text-gray-300'} text-sm font-bold mb-2`}>
+                <label htmlFor="email" className={`block ${isLightOn ? 'text-gray-700' : 'text-white'} text-sm font-bold mb-2`}>
                   Email
                 </label>
                 <input
@@ -614,7 +631,8 @@ export default function Principal() {
                   name="email"
                   value={formData.email}
                   onChange={handleFormChange}
-                  className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-gray-700 bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
+                  // CORRECTION APPLIQUÉE ICI
+                  className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-white bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
                   placeholder="Your Email"
                   required
                 />
@@ -629,7 +647,8 @@ export default function Principal() {
                   value={formData.message}
                   onChange={handleFormChange}
                   rows={5}
-                  className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-gray-700 bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
+                  // CORRECTION APPLIQUÉE ICI
+                  className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-white bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
                   placeholder="Your Message"
                   required
                 ></textarea>
