@@ -335,7 +335,7 @@ export default function Principal() {
         </AnimatedSection>
 
         {/* SECTION: About Me */}
-        <AnimatedSection className={`mt-16 ${isLightOn ? 'bg-gray-200' : 'bg-gray-800'} p-6 w-full`}>
+        <AnimatedSection className={`mt-16 sm:mt-24 ${isLightOn ? 'bg-gray-200' : 'bg-gray-800'} p-6 w-full`}>
           <div className="flex flex-col items-center">
             <h1 className={`text-4xl sm:text-7xl ${isLightOn ? 'text-gray-300' : 'text-gray-700'} font-extrabold shadow-md`}>
               ABOUT ME
@@ -346,28 +346,59 @@ export default function Principal() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 px-4 sm:px-12">
-            {/* Infos Perso */}
+            {/* Infos Perso - MODIFIED FOR RESPONSIVENESS */}
             <div>
               <h2 className={`text-3xl sm:text-4xl font-bold mb-10 text-center ${isLightOn ? 'text-gray-900' : 'text-white'}`}>
                 Personal Infos
               </h2>
+              {/* Changed from ul/li to divs for better centering control */}
               <div className={`grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-8 ${isLightOn ? 'text-gray-700' : 'text-gray-300'} text-base px-6 sm:px-12`}>
-                <ul className="space-y-6">
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>First Name:</span> <span className="ml-3">Leonce</span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Date de naissance:</span> <span className="ml-3">17 Juillet 2003</span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Freelance:</span> <span className="ml-3">Leonce_AWA</span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Phone:</span> <span className="ml-3">+229 0159000180 </span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Linkedin:</span> <span className="ml-3">Leonce OROU AWA</span></li>
-                </ul>
+                {/* First column data */}
+                <div className="flex flex-col gap-8">
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>First Name:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>Leonce</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Date de naissance:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>17 Juillet 2003</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Freelance:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>Leonce_AWA</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Phone:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>+229 0159000180 </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Linkedin:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>Leonce OROU AWA</span>
+                  </div>
+                </div>
 
-                <ul className="space-y-6">
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Last Name:</span> <span className="ml-3">OROU AWA </span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Nationality:</span> <span className="ml-3">Béninoise</span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Adresse:</span> <span className="ml-3">Bénin, Golo-Djigbe</span></li>
-                  <li><span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold`}>Email:</span> <span className="ml-3">orouleonce@gmail.com</span></li>
-                  <li className="flex items-start">
-                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold min-w-[90px]`}>Langage:</span>
-                    <div className="flex flex-col space-y-2 ml-3">
+                {/* Second column data */}
+                <div className="flex flex-col gap-8">
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Last Name:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>OROU AWA </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Nationality:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>Béninoise</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Adresse:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>Bénin, Golo-Djigbe</span>
+                  </div>
+                  <div className="flex flex-col items-center text-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Email:</span>
+                    <span className={`${isLightOn ? 'text-gray-900' : 'text-white'}`}>orouleonce@gmail.com</span>
+                  </div>
+                  {/* Language section - Adjusted for centering */}
+                  <div className="flex flex-col items-center">
+                    <span className={`${isLightOn ? 'text-gray-600' : 'text-gray-400'} font-semibold mb-1`}>Langage:</span>
+                    <div className="flex flex-col space-y-2 items-center"> {/* Centered content */}
                       {[
                         { name: "Français", level: 4 },
                         { name: "Anglais", level: 1 },
@@ -376,7 +407,7 @@ export default function Principal() {
                         { name: "Bariba", level: 4 },
                       ].map((lang, index) => (
                         <div key={index} className="flex items-center gap-2">
-                          <span className={`${isLightOn ? 'text-gray-900' : 'text-white'} text-sm w-20`}>{lang.name}</span>
+                          <span className={`${isLightOn ? 'text-gray-900' : 'text-white'} text-sm w-20 text-right`}>{lang.name}</span> {/* Aligned right to align progress */}
                           <div className="flex gap-1">
                             {Array.from({ length: 5 }).map((_, i) => (
                               <div
@@ -388,13 +419,13 @@ export default function Principal() {
                         </div>
                       ))}
                     </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Mes Intérêts */}
-            <div className="flex flex-col px-6 sm:px-12">
+            <div className="flex flex-col px-6 sm:px-12 mt-16 lg:mt-0"> {/* Adjusted margin-top for mobile/tablet */}
               <h2 className={`text-3xl sm:text-4xl font-bold mb-10 text-center ${isLightOn ? 'text-gray-900' : 'text-white'}`}>
                 My Interests
               </h2>
@@ -413,7 +444,7 @@ export default function Principal() {
         </AnimatedSection>
 
         {/* SECTION: Skills */}
-        <AnimatedSection id="skills-section" className="mt-32">
+        <AnimatedSection id="skills-section" className="mt-16 sm:mt-24"> {/* Adjusted margin-top */}
           <div className="flex flex-col items-center">
             <h1 className={`text-4xl sm:text-7xl ${isLightOn ? 'text-gray-300' : 'text-gray-700'} font-extrabold shadow-md`}>SKILLS</h1>
             <h2 className={`text-2xl sm:text-5xl font-extrabold -mt-14 ${isLightOn ? 'text-gray-900' : 'text-amber-500'}`}>Skills</h2>
@@ -434,7 +465,7 @@ export default function Principal() {
         </AnimatedSection>
 
         {/* SECTION: Experience & Education */}
-        <AnimatedSection id="projects-section" className="mt-32 px-4 sm:px-12">
+        <AnimatedSection id="projects-section" className="mt-16 sm:mt-24 px-4 sm:px-12" threshold={0.01}> {/* **MODIFIÉ ICI : threshold={0.01}** */}
           <div className="flex flex-col items-center mb-16">
             <h1 className={`text-4xl sm:text-6xl ${isLightOn ? 'text-gray-300' : 'text-gray-700'} font-extrabold shadow-md`}>
               EXPERIENCES & EDUCATION
@@ -444,9 +475,9 @@ export default function Principal() {
             </h2>
           </div>
 
-          {/* NEW: Professional Experience Section */}
+          {/* NEW: Professional Experience Section - MODIFIED GRID */}
           <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} text-center mb-8`}>Expériences Professionnelles</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 mb-16">
+          <div className="grid grid-cols-1 gap-8 mb-16"> {/* Always single column */}
             <ExperienceCard
               timeframe="Août 2024 - Septembre 2024"
               title="DEVELOPPEUR WEB JUNIOR"
@@ -498,8 +529,8 @@ export default function Principal() {
               </div>
             </div>
 
-            {/* Column 2: Projets Personnels */}
-            <div>
+            {/* Column 2: Projets Personnels - Adjusted margin-top for mobile/tablet */}
+            <div className="mt-16 lg:mt-0">
               <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} text-center mb-8`}>Projets Personnels</h3>
               <div className="space-y-8">
                 <ExperienceCard
@@ -537,8 +568,8 @@ export default function Principal() {
               </div>
             </div>
 
-            {/* Column 3: Formation Académique */}
-            <div>
+            {/* Column 3: Formation Académique - Adjusted margin-top for mobile/tablet */}
+            <div className="mt-16 lg:mt-0">
               <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} text-center mb-8`}>Formation Académique</h3>
               <div className="space-y-8">
                 <ExperienceCard
@@ -591,7 +622,7 @@ export default function Principal() {
         </AnimatedSection>
 
         {/* SECTION: Contact */}
-        <AnimatedSection id="Contact" className="mt-32 px-4 sm:px-12">
+        <AnimatedSection id="Contact" className="mt-16 sm:mt-24 px-4 sm:px-12"> {/* Adjusted margin-top */}
           <div className="flex flex-col items-center mb-16">
             <h1 className={`text-4xl sm:text-6xl ${isLightOn ? 'text-gray-300' : 'text-gray-700'} font-extrabold shadow-md`}>
               CONTACT ME
@@ -615,7 +646,6 @@ export default function Principal() {
                   name="name"
                   value={formData.name}
                   onChange={handleFormChange}
-                  // CORRECTION APPLIQUÉE ICI
                   className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-white bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
                   placeholder="Your Name"
                   required
@@ -631,7 +661,6 @@ export default function Principal() {
                   name="email"
                   value={formData.email}
                   onChange={handleFormChange}
-                  // CORRECTION APPLIQUÉE ICI
                   className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-white bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
                   placeholder="Your Email"
                   required
@@ -647,7 +676,6 @@ export default function Principal() {
                   value={formData.message}
                   onChange={handleFormChange}
                   rows={5}
-                  // CORRECTION APPLIQUÉE ICI
                   className={`shadow appearance-none border rounded w-full py-2 px-3 ${isLightOn ? 'text-gray-900 bg-gray-300 border-gray-400' : 'text-white bg-gray-700 border-gray-600'} leading-tight focus:outline-none focus:shadow-outline`}
                   placeholder="Your Message"
                   required
@@ -709,7 +737,7 @@ export default function Principal() {
             </div>
 
             {/* Locations */}
-            <div>
+            <div className="mt-16 lg:mt-0"> {/* Adjusted margin-top for mobile/tablet */}
               <h3 className={`text-3xl font-bold ${isLightOn ? 'text-gray-900' : 'text-white'} mb-8 text-center`}>Locations I've Worked/Studied</h3>
               <div className={`${isLightOn ? 'bg-gray-200' : 'bg-gray-800'} rounded-lg p-6 shadow-lg ${isLightOn ? 'text-gray-900' : 'text-white'} space-y-6`}>
                 <div className="flex items-start gap-4">
